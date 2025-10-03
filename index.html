@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Weather Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="./public/logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+<body>
+    <!-- Animated Sky Background -->
+    <div class="animated-sky-background">
+        <div class="sky-gradient"></div>
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="cloud cloud-4"></div>
+        <div class="cloud cloud-5"></div>
+    </div>
+
+    <div class="dashboard-container">
+        <header>
+            <div class="header-top">
+                <div class="title-card">
+                    <h1>Weather Dashboard <img src="./public/logo.png" alt="Logo" width="40" height="40"></h1>
+                    <p id="last-updated">Last updated: --:--</p>
+                </div>
+                <button id="refresh-btn" class="refresh-button">
+                <i class="fas fa-sync-alt"></i> Refresh Data
+                </button>
+            </div>
+
+            <!-- search-box -->
+            <div class="search-section">
+                <input type="text" id="city-input" placeholder="Search City..." />
+                <button id="search-city-btn"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="loading" class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Loading weather...
+            </div>
+
+            <!-- Current City Weather Card-->
+            <section class="weather-card" id="current-weather-card">
+                <div class="card-location-info">
+                    <i class="fas fa-map-marker-alt location-icon"></i>
+                    <h3 id="card-city-name">Loading...</h3>
+                    <span class="country-code" id="card-country-code"></span>
+                    <i class="fas fa-sun weather-icon" id="card-current-weather-icon"></i>
+                </div>
+                <div class="card-main-temp-desc">
+                    <p class="temp"><span id="card-temperature">--</span></p>
+                    <p id="card-weather-desc">Partly Cloudy</p>
+                </div>
+                <div class="card-details">
+                    <div class="detail-item">
+                        <span class="detail-label"><i class="fas humidity fa-tint"></i> Humidity:</span>
+                        <span class="detail-value" id="card-humidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label"><i class="fas wind fa-wind"></i> Wind Speed:</span>
+                        <span class="detail-value" id="card-wind">-- km/h</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label"><i class="fa-solid fa-temperature-full pressure"></i> Pressure:</span>
+                        <span class="detail-value" id="card-pressure">-- mm</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forecast Section -->
+            <section class="forecast" id="forecast-section">
+                <h2>3-DAY FORECAST</h2>
+                <div class="forecast-cards" id="forecast-container">
+                <!-- Forecast cards will be dynamically added here -->
+                </div>
+                <div class="forecast-summary">
+                <div>Average High: <span id="avg-high">--°C</span></div>
+                <div>Average Low: <span id="avg-low">--°C</span></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
